@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Loan Application">
+
+        <lightning-input name="Amount__c" label="Amount"
+            onchange={handleChange}></lightning-input>
+
+        <lightning-input name="Income__c" label="Income"
+            onchange={handleChange}></lightning-input>
+
+        <lightning-combobox name="Currency_Code__c"
+            label="Currency"
+            value="USD"
+            options={currencyOptions}
+            onchange={handleChange}>
+        </lightning-combobox>
+
+        <lightning-button label="Submit Loan"
+            onclick={handleSubmit}>
+        </lightning-button>
+
+    </lightning-card>
+</template>
