@@ -1,0 +1,59 @@
+<template>
+    <lightning-card title="Customer Onboarding">
+
+        <div class="slds-p-around_medium">
+
+            <lightning-input
+                label="First Name"
+                name="firstName"
+                value={form.firstName}
+                onchange={handleChange}>
+            </lightning-input>
+
+            <lightning-input
+                label="Last Name"
+                name="lastName"
+                value={form.lastName}
+                onchange={handleChange}>
+            </lightning-input>
+
+            <lightning-input
+                label="Email Address"
+                name="email"
+                type="email"
+                value={form.email}
+                onchange={handleChange}>
+            </lightning-input>
+
+            <lightning-input
+                label="Mobile Number"
+                name="mobilePhone"
+                type="tel"
+                value={form.mobilePhone}
+                onchange={handleChange}>
+            </lightning-input>
+
+            <div class="slds-m-top_medium">
+                <lightning-button
+                    label="Start Application"
+                    variant="brand"
+                    onclick={handleSubmit}>
+                </lightning-button>
+            </div>
+
+            <template if:true={message}>
+                <div class="slds-text-color_success slds-m-top_medium">
+                    {message}
+                </div>
+            </template>
+
+            <template if:true={error}>
+                <div class="slds-text-color_error slds-m-top_medium">
+                    {error}
+                </div>
+            </template>
+
+        </div>
+
+    </lightning-card>
+</template>
