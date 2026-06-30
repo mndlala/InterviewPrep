@@ -65,6 +65,6 @@ public with sharing class ExchangeRateService implements IExchangeRateService {
         for (String key : ratesRaw.keySet()) {
             rates.put(key, (Decimal) ratesRaw.get(key));
         }
-        return rates;
+        return rates; 
     }
 }
