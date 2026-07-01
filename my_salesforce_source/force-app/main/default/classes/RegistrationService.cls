@@ -19,9 +19,16 @@ public class RegistrationService {
         Lead leadToCreate = mapToLead(request);
 
         // 4. Insert Lead
-        insert leadToCreate;
+        //insert leadToCreate;
 
-        return leadToCreate.Id;
+        //return leadToCreate.Id;
+        try {
+            insert leadToCreate;
+            return leadToCreate.Id; 
+        } catch (Exception e) { 
+            System.debug(' ACTUAL DML ERROR: ' + e.getMessage());
+            throw e;
+		}
     }
 
     // -----------------------------
@@ -33,13 +40,13 @@ public class RegistrationService {
             throw new RegistrationException('Request cannot be null');
         }
 
-        if (!request.isValid()) {
+        /*if (!request.isValid()) {
             throw new RegistrationException('Invalid registration data');
-        }
+        }*/
 
-        if (String.isBlank(request.email)) {
-            throw new RegistrationException('Email is required');
-        }
+        /*if (String.isBlank(request.email)) {
+            throw new RegistrationException('Email is requiredzzz');
+        }*/
     }
 
     // -----------------------------
@@ -72,9 +79,10 @@ public class RegistrationService {
         // custom fields (you created earlier conceptually)
         //l.Preferred_Currency__c = request.preferredCurrency;
         //l.Monthly_Income__c = request.monthlyIncome;
-
+		l.Company = 'Self Service Portal';
         l.LeadSource = 'LWR_PORTAL';
-        l.Status = 'New';
+        l.Status = 'Open';
+        l.Salutation = 'Mr';
 
         return l;
     }
